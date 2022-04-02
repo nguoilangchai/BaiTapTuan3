@@ -1,5 +1,6 @@
 package com.example.baitaptuan3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -19,6 +20,11 @@ class Profile : AppCompatActivity() {
 //                binding.txtFull.text = "${it.username} --- ${it.password} "
                 binding.txtFull.text = "${it.username}"
                 binding.txtPass2.text = "${it.password}"
+            }
+
+            binding.btnDetailProfile.setOnClickListener {
+                val intent = Intent(this, ShowMenu::class.java)
+                startActivity(intent)
             }
     }
 }}

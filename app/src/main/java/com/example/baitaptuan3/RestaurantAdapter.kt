@@ -1,4 +1,4 @@
-package com.example.week4
+package com.example.baitaptuan3
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +9,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.week4.model.Idol
+import com.example.baitaptuan3.model.Restaurant
 
-class IdolAdapter : ListAdapter<Idol, IdolAdapter.IdolViewHolder>(IdolDiffUtil()) {
+class RestaurantAdapter : ListAdapter<Restaurant, RestaurantAdapter.IdolViewHolder>(IdolDiffUtil()) {
 
-    class IdolDiffUtil : DiffUtil.ItemCallback<Idol>(){
-        override fun areItemsTheSame(oldItem: Idol, newItem: Idol): Boolean {
+    class IdolDiffUtil : DiffUtil.ItemCallback<Restaurant>(){
+        override fun areItemsTheSame(oldItem: Restaurant, newItem: Restaurant): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Idol, newItem: Idol): Boolean {
+        override fun areContentsTheSame(oldItem: Restaurant, newItem: Restaurant): Boolean {
             return oldItem == newItem
         }
     }
@@ -37,18 +37,18 @@ class IdolAdapter : ListAdapter<Idol, IdolAdapter.IdolViewHolder>(IdolDiffUtil()
         companion object{
             fun from(parent: ViewGroup) : IdolViewHolder{
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.item_view_idol, parent, false)
+                val view = layoutInflater.inflate(R.layout.item_view_restaurant, parent, false)
                 return IdolViewHolder(view)
             }
         }
 
-        fun bindData(idol : Idol){
+        fun bindData(idol : Restaurant){
             val tvTitle = itemView.findViewById<TextView>(R.id.tv_title)
             val tvDescription = itemView.findViewById<TextView>(R.id.tv_description)
             val ivAvatar = itemView.findViewById<ImageView>(R.id.imageView)
 
             tvTitle.text = idol.name
-            tvDescription.text = idol.job
+            tvDescription.text = idol.address
             ivAvatar.setImageResource(idol.avatar)
         }
     }

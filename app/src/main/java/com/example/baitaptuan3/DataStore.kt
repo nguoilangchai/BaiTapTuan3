@@ -6,3 +6,4 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 class DataStore(val username:String, val password:String):Parcelable {
 }
+

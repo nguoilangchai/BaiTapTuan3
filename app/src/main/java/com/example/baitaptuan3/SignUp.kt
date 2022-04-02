@@ -38,7 +38,7 @@ class SignUp : AppCompatActivity() {
                 val bundle = Bundle()
                 bundle.putParcelable(Constants.KEY_USER, DataStore(email, passWord))
                 intent.putExtras(bundle)
-                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show()
                 startActivity(intent)
             }
         }
