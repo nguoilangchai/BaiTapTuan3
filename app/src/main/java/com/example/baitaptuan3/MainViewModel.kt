@@ -27,7 +27,7 @@ class MainViewModel : ViewModel() {
         }
 
         //password length > 8 && < 10
-        val isValidPassword = isPasswordValid(password)
+        val isValidPassword = isPassworValid(password)
         if(!isValidPassword){
             _isErrorEvent.postValue("Password không hợp lệ")
             return
@@ -40,8 +40,20 @@ class MainViewModel : ViewModel() {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    private fun isPasswordValid(password: String): Boolean{
-        return password.length in 8..10
+    fun isPassworValid(password:String):Boolean{
+        if(!password.matches(".*[A-Z].*".toRegex())){
+            return false
+        }
+        if(!password.matches(".*[a-z].*".toRegex())){
+            return false
+        }
+        if(password.length < 8){
+            return false
+        }
+        if(!password.matches(".*[!@#\$%^&*()].*".toRegex())){
+            return false
+        }
+        return true
     }
-
 }
+

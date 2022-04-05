@@ -20,15 +20,17 @@ class Login : AppCompatActivity() {
 
             dataStore?.let {
 //                binding.txtInfo.text = "${it.username} --- ${it.password} "
+                var tempUser : String = "${it.username}"
+                var tempPass : String = "${it.password}"
 
                 binding.btnLogin.setOnClickListener {
                     var count : Int = 0;
                     var buffer : String = ""
-                    if(("${binding.txtUserNameLogin.text}".compareTo("a@gmail.com"))!=0)
+                    if(("${binding.txtUserNameLogin.text}".compareTo(tempUser))!=0)
                     {
                         buffer += "Email không tồn tại\n"
                     }
-                    if(("${binding.txtPassWordLogin.text}".compareTo("12345678"))!=0)
+                    if(("${binding.txtPassWordLogin.text}".compareTo(tempPass))!=0)
                     {
                         buffer += "Pass không đúng"
                     }
